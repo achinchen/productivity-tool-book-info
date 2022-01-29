@@ -12,11 +12,13 @@ const SELECTOR = {
 }
 
 const NEW_LINE = '\n'
+const WHITE_SPACE = ' '
+
 const YEAR = '年'
 const DATE_REGEX = /\d{4}\W\d/
 
 function getInfo (rawInfo) {
-  return rawInfo.replace(NEW_LINE, '').trim()
+  return rawInfo.replace(NEW_LINE, '').replace(WHITE_SPACE, '').trim()
 }
 
 function getDate (rawData) {
