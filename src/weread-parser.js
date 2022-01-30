@@ -7,7 +7,7 @@ const SELECTOR = {
   Name: '.bookInfo_right_header_title',
   Image: '.wr_bookCover_img',
   Author: '.bookInfo_author',
-  Intro: '.bookInfo_intro',
+  Summary: '.bookInfo_intro',
   Date: '.introDialog_content_pub_line'
 }
 
@@ -17,8 +17,8 @@ const WHITE_SPACE = ' '
 const YEAR = '年'
 const DATE_REGEX = /\d{4}\W\d/
 
-function getInfo (rawInfo) {
-  return rawInfo.replace(NEW_LINE, '').replace(WHITE_SPACE, '').trim()
+function getSummary (rawSummary) {
+  return rawSummary.replace(NEW_LINE, '').replace(WHITE_SPACE, '').trim()
 }
 
 function getDate (rawData) {
@@ -43,12 +43,12 @@ async function getBookInfo(html) {
   const name = $(SELECTOR.Name).text()
   const author = $(SELECTOR.Author).text()
   const image = $(SELECTOR.Image).attr('src')
-  const intro = getInfo($(SELECTOR.Intro).text())
+  const summary = getSummary($(SELECTOR.Summary).text())
   const date = getDate($(SELECTOR.Date).text())
   const convertedResult = await translateTraditionalChinese({
     name,
     author,
-    intro
+    summary
   })
 
   return Object.assign(convertedResult, {image, date})
