@@ -1,17 +1,15 @@
 {
-  "name": "bookinfo-processor",
+  "name": "serverless-book-info",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "info": "node src/index.js"
-  },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@notionhq/client": "^0.4.13",
     "cheerio": "^1.0.0-rc.10",
     "dotenv": "^14.3.2",
+    "node-fetch": "^2.6.7",
     "opencc": "^1.1.3"
   }
 }
