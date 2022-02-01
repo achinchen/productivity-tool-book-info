@@ -1,7 +1,7 @@
 const bookInfoProcessor = require('../src/index')
 const validURL = require('../src/validURL')
 
-export default function handler(request, response) {
+async function handler(request, response) {
   const { url } = request.query;
   try {
     const isValid = validURL(url)
@@ -12,3 +12,5 @@ export default function handler(request, response) {
     response.status(400).send();
   }
 }
+
+module.exports = handler
