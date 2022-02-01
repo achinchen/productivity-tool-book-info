@@ -1,16 +1,13 @@
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
-const { argv } = require('process');
-const url = argv[2]
+const fetch = require('node-fetch');
 
-async function getHTML() {
+async function getHTML(url) {
   try {
-    const { stdout } = await exec(`curl ${url}`);
-    return stdout
+    const response = await fetch(url)
+    const html = await response.text();
+    return html
   } catch (err) {
     console.error(err);
   };
 };
-
 
 module.exports = getHTML
