@@ -1,6 +1,9 @@
+const { send } = require('micro')
+const microCors = require('micro-cors')
 const { createBookInfo } =  require('./createBookInfo')
 const { validUrl } = require('./utils')
-const { send } = require('micro')
+
+const cors = microCors()
 
 const app = async (request, response) => {
   try {
@@ -13,4 +16,4 @@ const app = async (request, response) => {
     send(response, 400)
   }
 }
-module.exports = app
+module.exports = cors(app)
