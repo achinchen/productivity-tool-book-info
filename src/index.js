@@ -3,7 +3,7 @@ const getBookInfo = require('./weread-parser')
 const createReadNote = require('./notion-integration') 
 
 async function bookInfoProcessor(url) {
-  const rawHtml = await crawler()
+  const rawHtml = await crawler(url)
   const result = await getBookInfo(rawHtml)
   await createReadNote(result)
 }
