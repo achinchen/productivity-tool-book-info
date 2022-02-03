@@ -13,4 +13,6 @@ async function getHTML() {
 };
 
 
-module.exports = getHTML
+module.exports = {
+  getHTML
+}
