@@ -7,13 +7,6 @@ function validUrl(url) {
   }
 }
 
-
-function getTargetUrl (rawUrl) {
-  return rawUrl.replace('/?url=', '')
-}
-
-
 module.exports = {
   validUrl,
-  getTargetUrl
 }

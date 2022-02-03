@@ -5,7 +5,6 @@ const { createReadNote } = require('./notionIntegration')
 async function createBookInfo(url) {
   const html = await getHTML(url)
   const result = await getBookInfo(html)
-  console.log(result)
   await createReadNote(result)
 }
 

@@ -1,10 +1,10 @@
 const { createBookInfo } =  require('./createBookInfo')
-const { getTargetUrl, validUrl } = require('./utils')
+const { validUrl } = require('./utils')
 const { send } = require('micro')
 
 const app = async (request, response) => {
   try {
-    const url = getTargetUrl(request.url)
+    const { url } = request.query
     const isValid = validUrl(url)
     if(!isValid) throw Error()
     await createBookInfo(url)
