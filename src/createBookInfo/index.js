@@ -1,10 +1,11 @@
-const { getHTML } = require('../crawler') 
-const { getBookInfo } = require('../weread-parser')
-const { createReadNote } = require('../notion-integration') 
+const { getHTML } = require('./crawler') 
+const { getBookInfo } = require('./wereadParser')
+const { createReadNote } = require('./notionIntegration') 
 
-async function createBookInfo() {
-  const rawHtml = await getHTML()
-  const result = await getBookInfo(rawHtml)
+async function createBookInfo(url) {
+  const html = await getHTML(url)
+  const result = await getBookInfo(html)
+  console.log(result)
   await createReadNote(result)
 }
 
