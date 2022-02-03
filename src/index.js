@@ -1,11 +1,12 @@
-const crawler = require('./crawler') 
-const getBookInfo = require('./weread-parser')
-const createReadNote = require('./notion-integration') 
+const { getHTML } = require('./crawler') 
+const { getBookInfo } = require('./weread-parser')
+// const { createReadNote } = require('./notion-integration') 
 
 async function bookInfoProcessor(url) {
-  const rawHtml = await crawler(url)
+  const rawHtml = await getHTML(url)
   const result = await getBookInfo(rawHtml)
-  await createReadNote(result)
+  return result
+  // await createReadNote(result)
 }
 
 module.exports = bookInfoProcessor

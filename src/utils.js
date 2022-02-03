@@ -7,4 +7,6 @@ function validURL(url) {
   }
 }
 
-module.exports = validURL
+module.exports = {
+  validURL
+}

@@ -1,7 +1,7 @@
 const cheerio = require('cheerio')
-const OpenCC = require('opencc')
+const { OpenCC } = require('opencc')
 
-const converter = new OpenCC('s2t.json')
+const converter = new OpenCC('s2tw.json')
 
 const SELECTOR = {
   Name: '.bookInfo_right_header_title',
@@ -54,4 +54,6 @@ async function getBookInfo(html) {
   return Object.assign(convertedResult, {image, date})
 }
 
-module.exports = getBookInfo
+module.exports = {
+  getBookInfo
+}
