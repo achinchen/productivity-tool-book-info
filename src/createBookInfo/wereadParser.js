@@ -54,4 +54,6 @@ async function getBookInfo(html) {
   return Object.assign(convertedResult, {image, date})
 }
 
-module.exports = getBookInfo
+module.exports = {
+  getBookInfo
+}

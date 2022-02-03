@@ -90,4 +90,6 @@ async function createReadNote ({name, author, summary, image, date}) {
 }
 
 
-module.exports = createReadNote
+module.exports = {
+  createReadNote
+}
