@@ -13,7 +13,7 @@ const PROPERTY = {
   Status: 'Ready to Start'
 }
 
-async function createReadNote ({name, author, summary, image, date}) {
+async function createReadNote ({name, author, summary, image, date, url}) {
   const databaseId = process.env.NOTION_DATABASE_ID;
   await notion.pages.create({
     parent: {
@@ -41,7 +41,7 @@ async function createReadNote ({name, author, summary, image, date}) {
         }
       },
       Link: {
-        url: 'https://weread.qq.com/web/reader/60a32c2071c2a37860a8289kc81322c012c81e728d9d180'
+        url
       },
       Type: { 
         select: {
